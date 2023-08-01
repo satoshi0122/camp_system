@@ -14,7 +14,7 @@ class Mst_SiteController extends Controller
      */
     public function index()
     {
-        //
+        //リポジトリで表記するんや今後
         $mst_sites = Mst_Site::all();
         return view('mst_sites.index',['mst_sites'=>$mst_sites]);
     }
@@ -27,8 +27,13 @@ class Mst_SiteController extends Controller
     public function create()
     {
         //
-    }
 
+        $mst_site = new Mst_site;
+        return view('mst_sites.create',['mst_site'=>$mst_site]);
+        // return view('mst_sites.create');
+        
+    }
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -37,7 +42,11 @@ class Mst_SiteController extends Controller
      */
     public function store(Request $request)
     {
+        
         //
+        $mst_site = Mst_site::create($request->all());
+        // $book = Book::create($request->all());
+        return redirect(route('mst_sites.index'));
     }
 
     /**
@@ -59,7 +68,10 @@ class Mst_SiteController extends Controller
      */
     public function edit($id)
     {
-        //
+        // dd($mst_site);
+        $mst_site = Mst_site::find($id);
+        return view('mst_sites.edit',['mst_site'=>$mst_site]);
+        // return view('mst_sites.index',['mst_sites'=>$mst_sites]);
     }
 
     /**
@@ -69,9 +81,15 @@ class Mst_SiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Mst_site $mst_site)
     {
         //
+        // $mst_site = Mst_site::find($id);
+        // Mst_site::updete($request->all);
+        // redirect('mst_sites.edit',['mst_site'=>$mst_site]);
+
+        $mst_site->update($request->all());
+        return redirect(route('mst_sites.index'));
     }
 
     /**
@@ -80,8 +98,14 @@ class Mst_SiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function mindestroy($id)
     {
-        //
+        // $mst_site = Mst_site::find($id);
+        // dd($mst_site);
+        // dd(now());
+        // $aa = now();
+        // $mst_site->update(['deleted_at' => $aa]);
+        mst_site::find($id)->delete();
+        return redirect(route('mst_sites.index'));
     }
 }

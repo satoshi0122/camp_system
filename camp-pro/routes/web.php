@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::resource('mst_sites',Mst_SiteController::class);
+Route::post('mst_site/destroy/{id}', [Mst_SiteController::class,'mindestroy'])->name('mst_sites.mindestroy');
