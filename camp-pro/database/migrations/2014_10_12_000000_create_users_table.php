@@ -15,10 +15,11 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('sei');
-            $table->string('mei');
-            $table->string('sei_kana');
-            $table->string('mei_kana');
+            $table->string('name');
+            $table->string('last_name')->nullable();
+            $table->string('first_name')->nullable();
+            $table->string('last_name_kana')->nullable();
+            $table->string('first_name_kana')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('phone',30); //バリデーション大切

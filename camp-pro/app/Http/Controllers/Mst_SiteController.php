@@ -98,7 +98,7 @@ class Mst_SiteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function mindestroy($id)
+    public function softDestroy($id)
     {
         // $mst_site = Mst_site::find($id);
         // dd($mst_site);

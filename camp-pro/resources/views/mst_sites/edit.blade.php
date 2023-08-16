@@ -12,9 +12,9 @@
 </form>
 
 {{-- <a href="{{ route('mst_sites.mindestroy',$mst_site->id) }}">削除</a> --}}
-<form action="{{ route('mst_sites.mindestroy',$mst_site->id) }}" method="post">
+<form action="{{ route('mst_sites.softDestroy',$mst_site->id) }}" method="post">
   @csrf
-  {{-- @method('patch') --}}
+  @method('delete')
   <button type="submit">削除</button>
 </form>
 
