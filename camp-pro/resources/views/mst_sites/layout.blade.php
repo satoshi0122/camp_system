@@ -4,16 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=chrome">
-  <title>キャンプサイト管理</title>
+	{{-- ブレード個別のスタイルシート反映 --}}
+	@stack('css')
+	@yield('yield.css')
+  {{-- <title>〇〇キャンプ場</title> --}}
 </head>
 <body>
-  レイアウト<br>
-  @yield('content')
-  <br>レイアウト
+	@include('layouts.header')
+	<div class="over">
+		<div class="over2">
+  		@yield('content')
+		</div>
+	</div>
 </body>
 </html>
 <style>
-  .mst-sites-creat-box{
+  * {
+		margin:0;
+		padding:0;
+	}
+	.over{
+		width: 100%;
+		height: 1000px;
+		background-color: bisque;
+	}
+	.over2{
+		max-width: 800px;
+		min-width: 600px;
+		height: 400px;
+		margin: 0 auto;
+		background-color: white;
+	}
+	.mst-sites-creat-box{
     margin: 5%;
   }
   .open {
@@ -36,6 +58,7 @@
 	top: 0;
 	left: 0;
 }
+/* createモーダル */
 .window {
 	width: 90vw;  
 	max-width: 540px;
