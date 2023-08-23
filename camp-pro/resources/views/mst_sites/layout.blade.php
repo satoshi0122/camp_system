@@ -26,7 +26,7 @@
 	.over{
 		width: 100%;
 		height: 1000px;
-		background-color: bisque;
+		background-color: white;
 	}
 	.over2{
 		max-width: 800px;
