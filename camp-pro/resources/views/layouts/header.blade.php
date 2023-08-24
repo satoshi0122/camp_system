@@ -7,10 +7,7 @@
       <button type="submit">ログアウト</button>
       </form>
     @else
-    <form action="{{ route('login') }}" method="post">
-      @csrf
-      <button type="submit">ログイン</button>
-      </form>
+    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ログイン</a>
     @endauth
 
     

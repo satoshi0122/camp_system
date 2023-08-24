@@ -49,10 +49,11 @@
             </div>   
         </div>
         <div-site-button>
+          @auth
           <a href="{{ route
             ('mst_sites.edit',$mst_site->id) }}">編集</a>
-          <a href="">2</a>
-          <a href="">3</a>
+            @endauth
+          <a href="">予約</a>
         </div-site-button>
     </div>
   @endforeach 
