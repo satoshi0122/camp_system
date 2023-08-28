@@ -1,4 +1,4 @@
-@extends('mst_sites.layout')
+@extends('layouts.default')
 
 @section('content')
 

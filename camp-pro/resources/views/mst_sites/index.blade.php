@@ -1,35 +1,11 @@
-@extends('mst_sites.layout')
+@extends('layouts.default')
 
+{{-- 親にpush --}}
 @push('css')
     <link href="{{ asset('css/mst_sites/index.css') }}" rel="stylesheet">
 @endpush
 
-{{-- <style>
-  .mst-site-box{
-  height: 160px;
-  width: 100%;
-  margin: 5px 10px;
-  background-color: blue;
-  .image-box{
-    height: 40px;
-    width: 120px;
-    padding:5%;
-    background-color: red;
-  }
-  }
-  h3{
-    color: red;
-  }
-</style> --}}
-{{-- @section('yield.css')
-  <link href="{{ URL('/camp-pro/resources/css/mst_sites/index.css') }}" rel="stylesheet">
-@endsection --}}
-
 @section('content')
-
-{{-- @push('css')
-    <link href="{{ asset('/camp-pro/resources/css/mst_sites/index.css') }}" rel="stylesheet">
-@endpush --}}
 
 <label class="open" for="pop-up">新規作成</label>
 <input type="checkbox" id="pop-up">
