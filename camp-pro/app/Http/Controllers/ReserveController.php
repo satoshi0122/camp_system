@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Reserve;
 use Illuminate\Http\Request;
+use App\Models\Reserve;
+use App\Models\Mst_site;
 
 class ReserveController extends Controller
 {
@@ -12,9 +13,21 @@ class ReserveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($mst_site_id)
     {
-        //
+        // 該当キャンプサイトの今月のデータを取得
+        date_default_timezone_set('Asia/Tokyo');
+        $now_year = date("Y");
+        $now_month = date("m");
+        $reserves = Reserve::where('mst_site_id','=',$mst_site_id)->whereYear('date',$now_year)->whereMonth('date',$now_month)->pluck('date')->toArray();
+
+
+        $params = [
+            'reserves'=>$reserves,
+            'mst_site'=>$mst_site = Mst_site::find($mst_site_id),
+            'user_id'=>$id = auth()->id()
+        ];
+        return view('reserves.index',$params);
     }
 
     /**
@@ -22,9 +35,16 @@ class ReserveController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create($mst_site_id,$date)
+    { 
         //
+        $params = [
+            'reserves'=>$reserves = new Reserve,
+            'mst_site'=>$mst_site = Mst_site::find($mst_site_id),
+            'user_id'=>$id = auth()->id(),
+            'date'=>$date
+        ];
+        return view('reserves.create',$params);
     }
 
     /**
@@ -35,7 +55,10 @@ class ReserveController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Reserve::create($request->all());
+
+        $mst_site_id = $request->mst_site_id;
+        return redirect(route('reserves.index',$mst_site_id));
     }
 
     /**
@@ -55,9 +78,11 @@ class ReserveController extends Controller
      * @param  \App\Models\Reserve  $reserve
      * @return \Illuminate\Http\Response
      */
-    public function edit(Reserve $reserve)
+    public function edit($id)
     {
         //
+        $reserve = Reserve::find($id);
+        return view('reserves.edit',['reserve'=>$reserve]);
     }
 
     /**
@@ -70,6 +95,8 @@ class ReserveController extends Controller
     public function update(Request $request, Reserve $reserve)
     {
         //
+        $reserve->update($request->all());
+        return redirect(route('reserves.create'));
     }
 
     /**
@@ -78,8 +105,10 @@ class ReserveController extends Controller
      * @param  \App\Models\Reserve  $reserve
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reserve $reserve)
+    public function softDestroy($id)
     {
         //
+        reserve::find($id)->delete();
+        return redirect(route('reserves.create'));
     }
 }

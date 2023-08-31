@@ -11,7 +11,7 @@ class Reserve extends Model
     use HasFactory;
     use SoftDeletes;
 
-    protected $fillable = ['user_id','site_id','people_num','started','finished','canceled','deleted_at'];
+    protected $fillable = ['user_id','mst_site_id','people_num','date','canceled','deleted_at'];
 
         // userが親の一対多リレーション
         public function users(){

@@ -4,7 +4,7 @@
 
 
 <h3>edit</h3>
-<form action="{{ route('mst_sites.update',$mst_site) }}" method="post">
+<form action="{{ route('mst_sites.update',$reserve->id) }}" method="post">
     @csrf
     @method('patch')
     @include('mst_sites.form')

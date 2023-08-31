@@ -13,7 +13,9 @@
 	@include('layouts.header')
 	<div class="over">
 		<div class="over2">
-  		@yield('content')
+			<div class="content-box">
+				@yield('content')
+			</div>
 		</div>
 	</div>
 </body>

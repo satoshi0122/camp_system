@@ -29,7 +29,7 @@
           <a href="{{ route
             ('mst_sites.edit',$mst_site->id) }}">編集</a>
             @endauth
-          <a href="">予約</a>
+          <a href="{{ route('reserves.index',$mst_site->id) }}">予約</a>
         </div-site-button>
     </div>
   @endforeach 

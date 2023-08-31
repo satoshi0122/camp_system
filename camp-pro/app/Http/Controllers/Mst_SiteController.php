@@ -14,7 +14,7 @@ class Mst_SiteController extends Controller
      */
     public function index()
     {
-        //リポジトリで表記するんや今後
+        //TODO:取得データ絞る
         $mst_sites = Mst_Site::all();
         return view('mst_sites.index',['mst_sites'=>$mst_sites]);
     }
