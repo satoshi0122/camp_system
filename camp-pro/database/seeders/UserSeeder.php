@@ -18,13 +18,9 @@ class UserSeeder extends Seeder
         //
         User::create([
             'name'=>'後藤哲志', 
-            'last_name'=>'後藤',
-            'first_name'=>'哲志',
-            'last_name_kana'=>'ゴトウ',
-            'first_name_kana'=>'サトシ',
-            'email'=>'rego.satosi@gmail.com',
+            'email'=>'@gmail.com',
             // 'email_verified_at'=>'0',
-            'phone'=>'09001224711',
+            'phone'=>'09011110122',
             'password'=>bcrypt('01220122')
         ]);
     }

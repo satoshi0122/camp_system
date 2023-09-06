@@ -10,7 +10,8 @@
               @csrf
               <label for="">サイト名</label><input type="text" name="name" value=""><br>
               <label for="">最大利用人数<input type="number" name="people_num_max" value=""></label><br>
-              <label for="">とりま登録者情報も自動追加<input type="number" name="created_by" value="1"><br>
+              
+            <input type="hidden" name="created_by" value="{{ Auth::id() }}">
 
               <button type="submit">新規登録</button>
           </form>

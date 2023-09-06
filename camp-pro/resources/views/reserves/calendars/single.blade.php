@@ -13,7 +13,7 @@
         $end_date_num   = date("t",      strtotime($now_date));   //終了の日 
         
 @endphp
-<table class="">
+<table class="calender-single">
       <tr> <!--年月表示-->
         {{ date("Y年m月") }}
       </tr>
@@ -110,3 +110,33 @@ $day = 1;
           </tr>
         </table> --}}
 </div>
+<style>
+  .container {
+  /* font-family: 'Noto Sans JP', sans-serif; */
+  margin-top: 80px;
+}
+a {
+  text-decoration: none;
+}
+th {
+  height: 30px;
+  text-align: center;
+  border-bottom:1px solid #000;
+}
+td {
+  height: 40px;
+  border-bottom:1px solid #000;
+}
+
+.today {
+  background: orange !important;
+}
+th:nth-of-type(1), td:nth-of-type(1) {
+  color: red;
+}
+th:nth-of-type(7), td:nth-of-type(7) {
+  color: blue;
+}
+.calender-single {
+}
+</style>

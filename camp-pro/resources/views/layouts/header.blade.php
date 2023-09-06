@@ -1,6 +1,6 @@
 <header>  
   <div class="header-1">
-    <a href="#" class="brand">Brand</a>
+    <a href="#" class="brand">○○キャンプ場</a>
     @auth
     <form action="{{ route('logout') }}" method="post">
       @csrf
@@ -10,15 +10,12 @@
     <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">ログイン</a>
     @endauth
 
-    
-    
   </div>
   <div class="header-2">
-    <a href="">キャンプサイト一覧</a>
-    <a href="">予約を行う</a>
+    @auth
+        <a href="{{ route('mst_sites.index') }}">キャンプサイト一覧</a>
+    @endauth
   </div>
-  
-
 
 </header>
 <style>

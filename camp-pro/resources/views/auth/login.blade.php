@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>ログイン</h1>
+    <p>ログイン</p>
     @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach

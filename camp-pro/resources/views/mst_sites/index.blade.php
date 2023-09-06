@@ -11,12 +11,14 @@
 <input type="checkbox" id="pop-up">
 @include('mst_sites.create')
 
-  <h3>index</h3>
   @foreach ($mst_sites as $mst_site) 
     <div class="mst-site-box">
       <div class="image-box">
         {{-- TODO：画像のCRUD機能 --}}
-        <img src="" alt="">
+        @php
+            $ran = rand(1,5);
+        @endphp
+        <img src="{{ asset('images/site'.$ran.'.jpg') }}" alt="サイト画像" width="250" height="124">
       </div>
         <div class="text-box">
           <p class="site-name">{{ $mst_site->name }}</p>
