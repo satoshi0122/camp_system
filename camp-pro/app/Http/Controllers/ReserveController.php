@@ -41,7 +41,7 @@ class ReserveController extends Controller
         $params = [
             'reserves'=>$reserves = new Reserve,
             'mst_site'=>$mst_site = Mst_site::find($mst_site_id),
-            'user_id'=>$id = auth()->id(),
+            'user_id'=>$id = auth()->id() ? auth()->id() : 1,
             'date'=>$date
         ];
         return view('reserves.create',$params);

@@ -85,6 +85,8 @@ $day = 1;
 </tr>
 </table>
 
+<p class="cakendar-button"><a href="{{ route('mst_sites.index') }}">戻る</a></p>
+
 
 
 {{-- 　php
